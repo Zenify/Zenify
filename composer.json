@@ -14,6 +14,11 @@
         "kdyby/events": "~3.0",
         "doctrine/orm": "~2.5",
 
+        "arachne/event-dispatcher": "^0.1",
+        "doctrine/migrations": "^1.4",
+        "symfony/console": "^2.7|^3.0",
+        "symfony/event-dispatcher": "^2.7|^3.0",
+
         "symnedi/event-dispatcher": "~0.4",
 
         "fzaninotto/faker": "~1.6",
@@ -47,6 +52,7 @@
             "Zenify\\DoctrineFixtures\\": "packages/DoctrineFixtures/src",
             "Zenify\\DoctrineFilters\\": "packages/DoctrineFilters/src",
             "Zenify\\DoctrineExtensionsTree\\": "packages/DoctrineExtensionsTree/src",
+            "Zenify\\DoctrineMigrations\\": "packages/DoctrineMigrations/src",
             "Zenify\\ModularLatteFilters\\": "packages/ModularLatteFilters/src",
             "Zenify\\NetteDatabaseFilters\\": "packages/NetteDatabaseFilters/src"
         }
@@ -58,6 +64,7 @@
             "Zenify\\DoctrineFixtures\\Tests\\": "packages/DoctrineFixtures/tests",
             "Zenify\\DoctrineFilters\\Tests\\": "packages/DoctrineFilters/tests",
             "Zenify\\DoctrineExtensionsTree\\Tests\\": "packages/DoctrineExtensionsTree/tests",
+            "Zenify\\DoctrineMigrations\\Tests\\": "packages/DoctrineMigrations/tests",
             "Zenify\\ModularLatteFilters\\Tests\\": "packages/ModularLatteFilters/tests",
             "Zenify\\NetteDatabaseFilters\\Tests\\": "packages/NetteDatabaseFilters/tests"
         }
