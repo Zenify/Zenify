@@ -12,6 +12,9 @@
 
         "kdyby/events": "~3.0",
 
+        "fzaninotto/faker": "~1.5",
+        "nelmio/alice": "~2.0",
+
         "knplabs/doctrine-behaviors": "~1.4",
         "greenlion/php-sql-parser": "^4.1"
     },
@@ -32,6 +35,7 @@
     "autoload": {
         "psr-4": {
             "Zenify\\DoctrineBehaviors\\": "packages/DoctrineBehaviors/src",
+            "Zenify\\DoctrineFixtures\\": "packages/DoctrineFixtures/src",
             "Zenify\\ModularLatteFilters\\": "packages/ModularLatteFilters/src",
             "Zenify\\NetteDatabaseFilters\\": "packages/NetteDatabaseFilters/src"
         }
@@ -39,6 +43,7 @@
     "autoload-dev": {
         "psr-4": {
             "Zenify\\DoctrineBehaviors\\Tests\\": "packages/DoctrineBehaviors/tests",
+            "Zenify\\DoctrineFixtures\\Tests\\": "packages/DoctrineFixtures/tests",
             "Zenify\\ModularLatteFilters\\Tests\\": "packages/ModularLatteFilters/tests",
             "Zenify\\NetteDatabaseFilters\\Tests\\": "packages/NetteDatabaseFilters/tests"
         }
