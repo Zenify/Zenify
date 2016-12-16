@@ -17,6 +17,8 @@
 
         "gedmo/doctrine-extensions": "~2.4",
 
+        "squizlabs/php_codesniffer": "~2.7",
+
         "knplabs/doctrine-behaviors": "~1.4",
         "greenlion/php-sql-parser": "^4.1"
     },
@@ -36,6 +38,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Zenify\\CodingStandard\\": "packages/CodingStandard/src",
             "Zenify\\DoctrineBehaviors\\": "packages/DoctrineBehaviors/src",
             "Zenify\\DoctrineFixtures\\": "packages/DoctrineFixtures/src",
             "Zenify\\DoctrineExtensionsTree\\": "packages/DoctrineExtensionsTree/src",
@@ -45,6 +48,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Zenify\\CodingStandard\\Tests\\": "packages/CodingStandard/tests",
             "Zenify\\DoctrineBehaviors\\Tests\\": "packages/DoctrineBehaviors/tests",
             "Zenify\\DoctrineFixtures\\Tests\\": "packages/DoctrineFixtures/tests",
             "Zenify\\DoctrineExtensionsTree\\Tests\\": "packages/DoctrineExtensionsTree/tests",
@@ -53,6 +57,6 @@
         }
     },
     "scripts": {
-        "check-cs": "vendor/bin/phpcs packages -ps --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/ruleset.xml"
+        "check-cs": "vendor/bin/phpcs packages -ps --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct"
     }
 }
