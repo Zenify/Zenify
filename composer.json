@@ -15,6 +15,8 @@
         "fzaninotto/faker": "~1.5",
         "nelmio/alice": "~2.0",
 
+        "gedmo/doctrine-extensions": "~2.4",
+
         "knplabs/doctrine-behaviors": "~1.4",
         "greenlion/php-sql-parser": "^4.1"
     },
@@ -36,6 +38,7 @@
         "psr-4": {
             "Zenify\\DoctrineBehaviors\\": "packages/DoctrineBehaviors/src",
             "Zenify\\DoctrineFixtures\\": "packages/DoctrineFixtures/src",
+            "Zenify\\DoctrineExtensionsTree\\": "packages/DoctrineExtensionsTree/src",
             "Zenify\\ModularLatteFilters\\": "packages/ModularLatteFilters/src",
             "Zenify\\NetteDatabaseFilters\\": "packages/NetteDatabaseFilters/src"
         }
@@ -44,6 +47,7 @@
         "psr-4": {
             "Zenify\\DoctrineBehaviors\\Tests\\": "packages/DoctrineBehaviors/tests",
             "Zenify\\DoctrineFixtures\\Tests\\": "packages/DoctrineFixtures/tests",
+            "Zenify\\DoctrineExtensionsTree\\Tests\\": "packages/DoctrineExtensionsTree/tests",
             "Zenify\\ModularLatteFilters\\Tests\\": "packages/ModularLatteFilters/tests",
             "Zenify\\NetteDatabaseFilters\\Tests\\": "packages/NetteDatabaseFilters/tests"
         }
