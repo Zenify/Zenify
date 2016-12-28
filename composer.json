@@ -16,10 +16,10 @@
 
         "arachne/event-dispatcher": "^0.1",
         "doctrine/migrations": "^1.4",
-        "symfony/console": "^2.7|^3.0",
-        "symfony/event-dispatcher": "^2.7|^3.0",
+        "symfony/console": "^3.1",
+        "symfony/event-dispatcher": "^3.1",
 
-        "symnedi/event-dispatcher": "~0.4",
+        "symplify/symfony-event-dispatcher": "~1.2",
 
         "fzaninotto/faker": "~1.6",
         "nelmio/alice": "~2.2",
@@ -70,6 +70,7 @@
         }
     },
     "scripts": {
-        "check-cs": "vendor/bin/phpcs packages -ps --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct"
+        "check-cs": "vendor/bin/phpcs packages -ps --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct",
+        "fix-cs": "vendor/bin/phpcbf packages -ps --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct"
     }
 }
