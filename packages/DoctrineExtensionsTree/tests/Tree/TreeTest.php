@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zenify\DoctrineExtensions\Tests\Tree;
+namespace Zenify\DoctrineExtensionsTree\Tests\Tree;
 
 use Doctrine\ORM\EntityManager;
 use Gedmo\Tree\Entity\Repository\MaterializedPathRepository;
@@ -28,14 +28,10 @@ final class TreeTest extends TestCase
 	private $categoryRepository;
 
 
-	public function __construct()
-	{
-		$this->container = (new ContainerFactory)->create();
-	}
-
-
 	protected function setUp()
 	{
+		$this->container = (new ContainerFactory)->create();
+
 		/** @var EntityManager $entityManager */
 		$entityManager = $this->container->getByType(EntityManager::class);
 		$this->categoryRepository = $entityManager->getRepository(Category::class);
