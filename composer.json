@@ -48,6 +48,7 @@
     "autoload": {
         "psr-4": {
             "Zenify\\CodingStandard\\": "packages/CodingStandard/src",
+            "ZenifyCodingStandard\\": "packages/CodingStandard/src/ZenifyCodingStandard",
             "Zenify\\DoctrineBehaviors\\": "packages/DoctrineBehaviors/src",
             "Zenify\\DoctrineFixtures\\": "packages/DoctrineFixtures/src",
             "Zenify\\DoctrineFilters\\": "packages/DoctrineFilters/src",
