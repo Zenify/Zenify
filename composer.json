@@ -72,6 +72,6 @@
     },
     "scripts": {
         "check-cs": "vendor/bin/phpcs packages -ps --standard=packages/CodingStandard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct",
-        "fix-cs": "vendor/bin/phpcbf packages -ps --standard=packages/CodingStandard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct"
+        "fix-cs": "vendor/bin/phpcbf packages --standard=packages/CodingStandard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct"
     }
 }
