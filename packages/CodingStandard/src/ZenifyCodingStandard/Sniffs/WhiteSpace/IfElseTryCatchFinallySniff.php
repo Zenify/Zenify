@@ -28,7 +28,7 @@ final class IfElseTryCatchFinallySniff implements PHP_CodeSniffer_Sniff
 	const NAME = 'ZenifyCodingStandard.WhiteSpace.IfElseTryCatchFinally';
 
 	/**
-	 * @var int
+	 * @var int|string
 	 */
 	private $requiredEmptyLineCountBeforeStatement = 1;
 

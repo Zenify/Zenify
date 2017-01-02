@@ -16,7 +16,6 @@ use Nette\Database\IConventions;
 use Nette\Database\IStructure;
 use Zenify\NetteDatabaseFilters\Contract\FilterManagerInterface;
 use Zenify\NetteDatabaseFilters\Database\Table\FiltersAwareSelection;
-use Zenify\NetteDatabaseFilters\FilterManager;
 use Zenify\NetteDatabaseFilters\Sql\SqlParser;
 
 
@@ -24,7 +23,7 @@ final class FiltersAwareContext extends Context
 {
 
 	/**
-	 * @var FilterManager
+	 * @var FilterManagerInterface
 	 */
 	private $filterManager;
 

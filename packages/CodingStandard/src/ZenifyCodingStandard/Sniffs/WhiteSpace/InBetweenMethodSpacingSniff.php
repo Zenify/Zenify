@@ -31,7 +31,7 @@ final class InBetweenMethodSpacingSniff extends Squiz_Sniffs_WhiteSpace_Function
 	const NAME = 'ZenifyCodingStandard.WhiteSpace.InBetweenMethodSpacing';
 
 	/**
-	 * @var int
+	 * @var int|string
 	 */
 	public $blankLinesBetweenMethods = 2;
 

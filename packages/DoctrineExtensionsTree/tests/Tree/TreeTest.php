@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Zenify\DoctrineExtensionsTree\Tests\Tree;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManager;
 use Gedmo\Tree\Entity\Repository\MaterializedPathRepository;
 use Gedmo\Tree\TreeListener;
@@ -23,7 +24,7 @@ final class TreeTest extends TestCase
 	private $container;
 
 	/**
-	 * @var MaterializedPathRepository
+	 * @var ObjectRepository|MaterializedPathRepository
 	 */
 	private $categoryRepository;
 

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Zenify\DoctrineFilters\Tests\FilterManager;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityRepository;
 use PHPUnit\Framework\TestCase;
 use Zenify\DoctrineFilters\Contract\FilterManagerInterface;
 use Zenify\DoctrineFilters\FilterManager;
@@ -23,7 +23,7 @@ final class FilterManagerQueryTest extends TestCase
 	private $entityManager;
 
 	/**
-	 * @var EntityRepository
+	 * @var ObjectRepository
 	 */
 	private $productRepository;
 
