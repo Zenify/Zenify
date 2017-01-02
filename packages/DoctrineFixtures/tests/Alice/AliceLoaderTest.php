@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Zenify\DoctrineFixtures\Tests\Alice;
 
-use Doctrine\ORM\EntityRepository;
+use Doctrine\Common\Persistence\ObjectRepository;
 use Zenify\DoctrineFixtures\Contract\Alice\AliceLoaderInterface;
 use Zenify\DoctrineFixtures\Tests\AbstractDatabaseTestCase;
 use Zenify\DoctrineFixtures\Tests\Entity\Product;
@@ -21,12 +21,12 @@ final class AliceLoaderTest extends AbstractDatabaseTestCase
 	private $fixturesLoader;
 
 	/**
-	 * @var EntityRepository
+	 * @var ObjectRepository
 	 */
 	private $productRepository;
 
 	/**
-	 * @var EntityRepository
+	 * @var ObjectRepository
 	 */
 	private $userRepository;
 

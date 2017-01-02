@@ -27,12 +27,12 @@ final class ClassDeclarationSniff extends PEAR_Sniffs_Classes_ClassDeclarationSn
 	const NAME = 'ZenifyCodingStandard.Classes.ClassDeclaration';
 
 	/**
-	 * @var int
+	 * @var int|string
 	 */
 	public $emptyLinesAfterOpeningBrace = 1;
 
 	/**
-	 * @var int
+	 * @var int|string
 	 */
 	public $emptyLinesBeforeClosingBrace = 1;
 

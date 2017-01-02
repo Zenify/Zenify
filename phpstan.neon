@@ -1,0 +1,7 @@
+parameters:
+    ignoreErrors:
+        - "#Call to an undefined method Prophecy#"
+    excludes_analyse:
+        - *packages/CodingStandard/tests/**/correct*
+        - *packages/CodingStandard/tests/**/wrong*
+        - *packages/DoctrineBehaviors/tests/**/TranslatableTest.php

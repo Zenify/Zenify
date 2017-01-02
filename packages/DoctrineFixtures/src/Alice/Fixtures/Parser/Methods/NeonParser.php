@@ -25,16 +25,15 @@ final class NeonParser extends Base
 
 	/**
 	 * @param string $file
-	 * @return string
+	 * @return mixed[]
 	 */
 	public function parse($file)
 	{
 		ob_start();
-		$loader = $this;
 
 		// isolates the file from current context variables and gives
 		// it access to the $loader object to inline php blocks if needed
-		$includeWrapper = function () use ($file, $loader) {
+		$includeWrapper = function () use ($file) {
 			return include $file;
 		};
 		$data = $includeWrapper();
