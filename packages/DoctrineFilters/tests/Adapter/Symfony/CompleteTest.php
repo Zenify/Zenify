@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Zenify\DoctrineFilters\Tests\Symfony\Adapter;
+namespace Zenify\DoctrineFilters\Tests\Adapter\Symfony;
 
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Kernel;
-use Zenify\DoctrineFilters\Tests\Adapter\Symfony\AppKernel;
 use Zenify\DoctrineFilters\Tests\Adapter\Symfony\Controller\SomeController;
 
 
