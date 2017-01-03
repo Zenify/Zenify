@@ -10,8 +10,8 @@
 		"arachne/event-dispatcher": "^0.1",
 		"doctrine/migrations": "^1.4",
 		"nette/di": "^2.4",
-		"symfony/console": "^3.1",
-		"symfony/event-dispatcher": "^3.1"
+		"symfony/console": "^3.2",
+		"symfony/event-dispatcher": "^3.2"
 	},
 	"require-dev": {
 		"kdyby/console": "^2.6",
@@ -21,7 +21,7 @@
 		"nette/reflection": "^2.4",
 		"tracy/tracy": "^2.4",
 		"phpunit/phpunit": "^5.7",
-		"zenify/coding-standard": "^4.0"
+		"zenify/coding-standard": "^4.2"
 	},
 	"autoload": {
 		"psr-4": {

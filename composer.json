@@ -3,47 +3,47 @@
     "description": "Main repository for Zenify packages development.",
     "license": "MIT",
     "require": {
-        "php": "~7.0",
+        "php": "^7.0",
 
-        "nette/application": "~2.4",
+        "nette/application": "^2.4",
         "nette/di": "^2.4",
         "nette/database": "^2.4",
         "latte/latte": "^2.4",
-        "tracy/tracy": "~2.4",
+        "tracy/tracy": "^2.4",
 
-        "kdyby/events": "~3.0",
-        "doctrine/orm": "~2.5",
+        "kdyby/events": "^3.0",
+        "doctrine/orm": "^2.5",
 
         "arachne/event-dispatcher": "^0.1",
         "doctrine/migrations": "^1.4",
-        "symfony/console": "^3.1",
-        "symfony/event-dispatcher": "^3.1",
+        "symfony/console": "^3.2",
+        "symfony/event-dispatcher": "^3.2",
 
-        "symplify/symfony-event-dispatcher": "~1.2",
+        "symplify/symfony-event-dispatcher": "^1.3",
 
-        "fzaninotto/faker": "~1.6",
-        "nelmio/alice": "~2.2",
+        "fzaninotto/faker": "^1.6",
+        "nelmio/alice": "^2.2",
 
-        "gedmo/doctrine-extensions": "~2.4",
+        "gedmo/doctrine-extensions": "^2.4",
 
-        "squizlabs/php_codesniffer": "~2.7",
+        "squizlabs/php_codesniffer": "^2.7",
 
-        "knplabs/doctrine-behaviors": "~1.4",
+        "knplabs/doctrine-behaviors": "^1.4",
         "greenlion/php-sql-parser": "^4.1"
     },
     "require-dev": {
-        "nette/di": "~2.4",
-        "nette/http": "~2.4",
-        "nette/reflection": "~2.4",
-        "nette/security": "~2.4",
+        "nette/di": "^2.4",
+        "nette/http": "^2.4",
+        "nette/reflection": "^2.4",
+        "nette/security": "^2.4",
         "nette/application": "^2.4",
         "nette/bootstrap": "^2.4",
         "nette/utils": "^2.4",
 
-        "kdyby/doctrine": "~3.1",
+        "kdyby/doctrine": "^3.1",
 
         "phpunit/phpunit": "^5.7",
-        "zenify/coding-standard": "^4.0",
+        "zenify/coding-standard": "^4.2",
         "phpstan/phpstan": "^0.5"
     },
     "autoload": {
@@ -75,6 +75,7 @@
         ]
     },
     "scripts": {
+        "complete-check": ["@check-cs", "@check-cs", "@phpstan"],
         "check-cs": "vendor/bin/phpcs packages -ps --standard=packages/CodingStandard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct",
         "fix-cs": "vendor/bin/phpcbf packages --standard=packages/CodingStandard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct",
         "phpstan": "vendor/bin/phpstan analyse packages --level=4 -c phpstan.neon"
