@@ -12,17 +12,21 @@ namespace Zenify\DoctrineFilters\Adapter\Symfony;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Zenify\DoctrineFilters\Adapter\Symfony\DependencyInjection\Compiler\LoadFiltersCompilerPass;
-use Zenify\DoctrineFilters\Adapter\Symfony\DependencyInjection\Extension\DoctrineFiltersExtension;
+use
+	Zenify\DoctrineFilters\Adapter\Symfony\DependencyInjection\Extension\DoctrineFiltersExtension;
 
 final class DoctrineFiltersBundle extends Bundle
 {
-    public function getContainerExtension() : DoctrineFiltersExtension
-    {
-        return new DoctrineFiltersExtension();
-    }
 
-    public function build(ContainerBuilder $containerBuilder)
-    {
-        $containerBuilder->addCompilerPass(new LoadFiltersCompilerPass());
-    }
+	public function getContainerExtension() : DoctrineFiltersExtension
+	{
+		return new DoctrineFiltersExtension;
+	}
+
+
+	public function build(ContainerBuilder $containerBuilder)
+	{
+		$containerBuilder->addCompilerPass(new LoadFiltersCompilerPass);
+	}
+
 }

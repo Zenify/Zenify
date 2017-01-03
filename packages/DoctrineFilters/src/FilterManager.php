@@ -70,6 +70,7 @@ final class FilterManager implements FilterManagerInterface
 		$this->areFiltersEnabled = TRUE;
 	}
 
+
 	private function addFilterToEnabledInFilterCollection(string $name, FilterInterface $filter)
 	{
 		$enabledFiltersReflection = $this->getEnabledFiltersPropertyReflectionWithAccess();
@@ -80,6 +81,7 @@ final class FilterManager implements FilterManagerInterface
 
 		$enabledFiltersReflection->setValue($filterCollection, $enabledFilters);
 	}
+
 
 	private function getEnabledFiltersPropertyReflectionWithAccess() : ReflectionProperty
 	{

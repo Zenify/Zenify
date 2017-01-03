@@ -14,34 +14,38 @@ use Zenify\DoctrineFilters\Tests\Adapter\Symfony\Controller\SomeController;
 
 final class CompleteTest extends TestCase
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
 
-    /**
-     * @var Kernel
-     */
-    private $kernel;
+	/**
+	 * @var EntityManagerInterface
+	 */
+	private $entityManager;
 
-    protected function setUp()
-    {
-        $this->kernel = new AppKernel();
-        $this->kernel->boot();
+	/**
+	 * @var Kernel
+	 */
+	private $kernel;
 
-        $this->entityManager = $this->kernel->getContainer()
-            ->get('doctrine.orm.default_entity_manager');
-    }
 
-    public function testEnableFiltersViaSubscriber()
-    {
-        $request = new Request();
-        $request->attributes->set('_controller', SomeController::class . '::someAction');
+	protected function setUp()
+	{
+		$this->kernel = new AppKernel;
+		$this->kernel->boot();
 
-        $filters = $this->entityManager->getFilters();
-        $this->assertCount(0, $filters->getEnabledFilters());
+		$this->entityManager = $this->kernel->getContainer()
+			->get('doctrine.orm.default_entity_manager');
+	}
 
-        $this->kernel->handle($request);
-        $this->assertCount(1, $filters->getEnabledFilters());
-    }
+
+	public function testEnableFiltersViaSubscriber()
+	{
+		$request = new Request;
+		$request->attributes->set('_controller', SomeController::class . '::someAction');
+
+		$filters = $this->entityManager->getFilters();
+		$this->assertCount(0, $filters->getEnabledFilters());
+
+		$this->kernel->handle($request);
+		$this->assertCount(1, $filters->getEnabledFilters());
+	}
+
 }
