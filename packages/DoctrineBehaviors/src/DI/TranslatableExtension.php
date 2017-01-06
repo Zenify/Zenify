@@ -24,7 +24,7 @@ final class TranslatableExtension extends AbstractBehaviorExtension
 	/**
 	 * @var array
 	 */
-	private $default = [
+	private $defaults = [
 		'currentLocaleCallable' => NULL,
 		'defaultLocaleCallable' => NULL,
 		'translatableTrait' => Translatable::class,
@@ -36,7 +36,7 @@ final class TranslatableExtension extends AbstractBehaviorExtension
 
 	public function loadConfiguration()
 	{
-		$config = $this->getConfig($this->default);
+		$config = $this->validateConfig($this->defaults);
 		$this->validateConfigTypes($config);
 		$builder = $this->getContainerBuilder();
 

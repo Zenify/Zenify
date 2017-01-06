@@ -12,6 +12,7 @@ namespace Zenify\DoctrineFixtures\DI;
 use Faker\Provider\Base;
 use Nelmio\Alice\Fixtures\Loader;
 use Nelmio\Alice\Fixtures\Parser\Methods\MethodInterface;
+use Nette\DI\Compiler;
 use Nette\DI\CompilerExtension;
 use Nette\DI\ServiceDefinition;
 
@@ -30,9 +31,10 @@ final class FixturesExtension extends CompilerExtension
 
 	public function loadConfiguration()
 	{
-		$containerBuilder = $this->getContainerBuilder();
-		$services = $this->loadFromFile(__DIR__ . '/services.neon');
-		$this->compiler->parseServices($containerBuilder, $services);
+		Compiler::loadDefinitions(
+			$this->getContainerBuilder(),
+			$this->loadFromFile(__DIR__ . '/services.neon')['services']
+		);
 	}
 
 
@@ -48,12 +50,12 @@ final class FixturesExtension extends CompilerExtension
 
 	private function loadFakerProvidersToAliceLoader()
 	{
-		$containerBuilder = $this->getContainerBuilder();
-		$config = $this->getConfig($this->defaults);
+		$config = $this->validateConfig($this->defaults);
 
 		$this->getDefinitionByType(Loader::class)->setArguments([
 			$config['locale'],
-			$containerBuilder->findByType(Base::class),
+			$this->getContainerBuilder()
+				->findByType(Base::class),
 			$config['seed']
 		]);
 	}

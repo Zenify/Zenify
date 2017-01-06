@@ -23,7 +23,7 @@ final class BlameableExtension extends AbstractBehaviorExtension
 	/**
 	 * @var array
 	 */
-	private $default = [
+	private $defaults = [
 		'isRecursive' => TRUE,
 		'trait' => Blameable::class,
 		'userCallable' => UserCallable::class,
@@ -33,7 +33,7 @@ final class BlameableExtension extends AbstractBehaviorExtension
 
 	public function loadConfiguration()
 	{
-		$config = $this->getConfig($this->default);
+		$config = $this->validateConfig($this->defaults);
 		$this->validateConfigTypes($config);
 		$builder = $this->getContainerBuilder();
 

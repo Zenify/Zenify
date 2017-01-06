@@ -22,7 +22,7 @@ final class TreeExtension extends AbstractBehaviorExtension
 	/**
 	 * @var array
 	 */
-	private $default = [
+	private $defaults = [
 		'isRecursive' => TRUE,
 		'nodeTrait' => Node::class
 	];
@@ -30,7 +30,7 @@ final class TreeExtension extends AbstractBehaviorExtension
 
 	public function loadConfiguration()
 	{
-		$config = $this->getConfig($this->default);
+		$config = $this->validateConfig($this->defaults);
 		$this->validateConfigTypes($config);
 		$builder = $this->getContainerBuilder();
 

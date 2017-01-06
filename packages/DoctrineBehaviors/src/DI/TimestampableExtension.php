@@ -22,7 +22,7 @@ final class TimestampableExtension extends AbstractBehaviorExtension
 	/**
 	 * @var array
 	 */
-	private $default = [
+	private $defaults = [
 		'isRecursive' => TRUE,
 		'trait' => Timestampable::class,
 		'dbFieldType' => 'datetime',
@@ -31,7 +31,7 @@ final class TimestampableExtension extends AbstractBehaviorExtension
 
 	public function loadConfiguration()
 	{
-		$config = $this->getConfig($this->default);
+		$config = $this->validateConfig($this->defaults);
 		$this->validateConfigTypes($config);
 		$builder = $this->getContainerBuilder();
 

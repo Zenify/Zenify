@@ -127,7 +127,7 @@ final class MigrationsExtension extends CompilerExtension
 
 	private function getValidatedConfig() : array
 	{
-		$configuration = $this->getConfig($this->defaults);
+		$configuration = $this->validateConfig($this->defaults);
 		$this->validateConfig($configuration);
 		$configuration['directory'] = $this->getContainerBuilder()->expand($configuration['directory']);
 

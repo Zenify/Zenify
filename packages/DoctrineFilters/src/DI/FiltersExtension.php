@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Zenify\DoctrineFilters\DI;
 
 use Doctrine\ORM\Configuration;
+use Nette\DI\Compiler;
 use Nette\DI\CompilerExtension;
 use Zenify\DoctrineFilters\Contract\FilterInterface;
 use Zenify\DoctrineFilters\Contract\FilterManagerInterface;
@@ -27,11 +28,12 @@ final class FiltersExtension extends CompilerExtension
 
 	public function loadConfiguration()
 	{
-		$containerBuilder = $this->getContainerBuilder();
-		$services = $this->loadFromFile(__DIR__ . '/../config/services.neon');
-		$this->compiler->parseServices($containerBuilder, $services);
+		Compiler::loadDefinitions(
+			$this->getContainerBuilder(),
+			$this->loadFromFile(__DIR__ . '/../config/services.neon')['services']
+		);
 
-		$this->definitionFinder = new DefinitionFinder($containerBuilder);
+		$this->definitionFinder = new DefinitionFinder($this->getContainerBuilder());
 	}
 
 
