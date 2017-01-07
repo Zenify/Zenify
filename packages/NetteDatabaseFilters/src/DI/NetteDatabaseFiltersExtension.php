@@ -2,11 +2,6 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of Zenify
- * Copyright (c) 2016 Tomas Votruba (http://tomasvotruba.cz)
- */
-
 namespace Zenify\NetteDatabaseFilters\DI;
 
 use Nette\Database\Context;

@@ -75,7 +75,7 @@
         ]
     },
     "scripts": {
-        "complete-check": ["@check-cs", "@check-cs", "@phpstan"],
+        "complete-check": ["vendor/bin/phpunit", "@fix-cs", "@phpstan"],
         "check-cs": "vendor/bin/phpcs packages -ps --standard=packages/CodingStandard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct",
         "fix-cs": "vendor/bin/phpcbf packages --standard=packages/CodingStandard/src/ZenifyCodingStandard/ruleset.xml --ignore=wrong,correct",
         "phpstan": "vendor/bin/phpstan analyse packages --level=4 -c phpstan.neon"

@@ -1,9 +1,6 @@
 <?php
 
-/*
- * This file is part of Zenify
- * Copyright (c) 2012 Tomas Votruba (http://tomasvotruba.cz)
- */
+declare(strict_types = 1);
 
 namespace Zenify\CodingStandard\Composer;
 

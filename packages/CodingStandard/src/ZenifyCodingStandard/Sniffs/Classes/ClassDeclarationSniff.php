@@ -2,11 +2,6 @@
 
 declare(strict_types = 1);
 
-/*
- * This file is part of Zenify
- * Copyright (c) 2012 Tomas Votruba (http://tomasvotruba.cz)
- */
-
 namespace ZenifyCodingStandard\Sniffs\Classes;
 
 use PEAR_Sniffs_Classes_ClassDeclarationSniff;
