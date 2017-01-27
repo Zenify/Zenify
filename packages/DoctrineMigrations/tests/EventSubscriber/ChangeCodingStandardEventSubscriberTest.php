@@ -13,6 +13,12 @@ use Symfony\Component\Console\Output\BufferedOutput;
 class ChangeCodingStandardEventSubscriberTest extends AbstractEventSubscriberTest
 {
 
+	/**
+	 * @var string
+	 */
+	private $timeZone;
+
+
 	protected function setUp()
 	{
 		parent::setUp();
@@ -20,6 +26,16 @@ class ChangeCodingStandardEventSubscriberTest extends AbstractEventSubscriberTes
 		/** @var Configuration $configuration */
 		$configuration = $this->container->getByType(Configuration::class);
 		$configuration->setMigrationsDirectory($this->getMigrationsDirectory());
+
+		$this->saveTimeZone();
+	}
+
+
+	protected function tearDown()
+	{
+		parent::tearDown();
+
+		$this->restoreTimeZone();
 	}
 
 
@@ -34,6 +50,13 @@ class ChangeCodingStandardEventSubscriberTest extends AbstractEventSubscriberTes
 	}
 
 
+	public function testDispatchingGenerateCommandWithTimezone()
+	{
+		$this->setTimeZone('Europe/Prague');
+		$this->testDispatchingGenerateCommand();
+	}
+
+
 	public function testDispatchingDiffCommand()
 	{
 		$input = new ArrayInput(['command' => 'migrations:diff']);
@@ -42,6 +65,13 @@ class ChangeCodingStandardEventSubscriberTest extends AbstractEventSubscriberTes
 		$result = $this->application->run($input, $output);
 		$this->assertSame(0, $result);
 		$this->assertCommandOutputAndMigrationCodeStyle($output->fetch());
+	}
+
+
+	public function testDispatchingDiffCommandWithTimezone()
+	{
+		$this->setTimeZone('Europe/Prague');
+		$this->testDispatchingDiffCommand();
 	}
 
 
@@ -78,6 +108,27 @@ class ChangeCodingStandardEventSubscriberTest extends AbstractEventSubscriberTes
 	{
 		preg_match('/"([^"]+)"/', $outputContent, $matches);
 		return $matches[1];
+	}
+
+
+	private function saveTimeZone()
+	{
+		$this->timeZone = ini_get('date.timezone');
+	}
+
+
+	private function restoreTimeZone()
+	{
+		ini_set('date.timezone', $this->timeZone);
+	}
+
+
+	/**
+	 * @param string $timeZone
+	 */
+	private function setTimeZone($timeZone)
+	{
+		ini_set('date.timezone', $timeZone);
 	}
 
 }

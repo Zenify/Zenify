@@ -65,7 +65,7 @@ final class ChangeCodingStandardEventSubscriber implements EventSubscriberInterf
 
 		$i = 0;
 		while ( ! file_exists($this->getMigrationFileByVersion($version)) && $i <= 10) {
-			$version--;
+			$version = (string) ($version - 1);
 			$i++;
 		}
 
@@ -76,7 +76,9 @@ final class ChangeCodingStandardEventSubscriber implements EventSubscriberInterf
 
 	private function getCurrentVersionName() : string
 	{
-		return date('YmdHis');
+		return method_exists($this->configuration, 'generateVersionNumber') ?
+			$this->configuration->generateVersionNumber() :
+			date('YmdHis');
 	}
 
 
