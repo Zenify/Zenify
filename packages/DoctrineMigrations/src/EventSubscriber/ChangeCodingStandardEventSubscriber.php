@@ -76,7 +76,9 @@ final class ChangeCodingStandardEventSubscriber implements EventSubscriberInterf
 
 	private function getCurrentVersionName() : string
 	{
-		return date('YmdHis');
+		return method_exists($this->configuration, 'generateVersionNumber') ?
+			$this->configuration->generateVersionNumber() :
+			date('YmdHis');
 	}
 
 
