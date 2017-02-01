@@ -6,20 +6,27 @@ namespace Zenify\DoctrineMigrations\Tests\EventSubscriber;
 
 use Doctrine\DBAL\Migrations\Configuration\Configuration;
 use Nette\Utils\FileSystem;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Zenify\DoctrineMigrations\Contract\CodeStyle\CodeStyleInterface;
+use Zenify\DoctrineMigrations\EventSubscriber\ChangeCodingStandardEventSubscriber;
 
 
 class ChangeCodingStandardEventSubscriberTest extends AbstractEventSubscriberTest
 {
+	/** @var Configuration */
+	private $configuration;
+
 
 	protected function setUp()
 	{
 		parent::setUp();
 
 		/** @var Configuration $configuration */
-		$configuration = $this->container->getByType(Configuration::class);
-		$configuration->setMigrationsDirectory($this->getMigrationsDirectory());
+		$this->configuration = $this->container->getByType(Configuration::class);
+		$this->configuration->setMigrationsDirectory($this->getMigrationsDirectory());
 	}
 
 
@@ -42,6 +49,23 @@ class ChangeCodingStandardEventSubscriberTest extends AbstractEventSubscriberTes
 		$result = $this->application->run($input, $output);
 		$this->assertSame(0, $result);
 		$this->assertCommandOutputAndMigrationCodeStyle($output->fetch());
+	}
+
+
+	public function testApplyCodingStyle()
+	{
+		/** @var CodeStyleInterface $codeStyle */
+		$codeStyle = $this->createMock(CodeStyleInterface::class);
+		$subscriber = new ChangeCodingStandardEventSubscriber($this->configuration, $codeStyle);
+
+		$commandMock = $this->createMock(Command::class);
+		$commandMock->method('getName')->willReturn('migrations:diff');
+
+		/** @var ConsoleTerminateEvent|\PHPUnit_Framework_MockObject_MockObject $consoleTerminateEventMock */
+		$consoleTerminateEventMock = $this->createMock(ConsoleTerminateEvent::class);
+		$consoleTerminateEventMock->method('getCommand')->willReturn($commandMock);
+
+		$subscriber->applyCodingStyle($consoleTerminateEventMock);
 	}
 
 
