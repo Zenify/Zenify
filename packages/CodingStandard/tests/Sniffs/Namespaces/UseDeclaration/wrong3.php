@@ -2,7 +2,7 @@
 
 namespace SomeNamespace;
 
-use Sth;
+use  Sth;
 
 class SomeClass
 {

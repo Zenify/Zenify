@@ -1,0 +1,12 @@
+# required by FrameworkBundle
+parameters:
+    kernel.secret: 123
+
+services:
+    some.filter:
+        class: Zenify\DoctrineFilters\Tests\Adapter\Symfony\Filter\SomeFilter
+
+doctrine:
+    orm:
+    dbal:
+        memory: true

@@ -1,0 +1,9 @@
+services:
+    zenify.filter_manager:
+        class: Zenify\DoctrineFilters\FilterManager
+        autowire: true
+
+    zenify.enable_filters_listener:
+        class: Zenify\DoctrineFilters\Adapter\Symfony\EventListener\EnableFiltersListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }

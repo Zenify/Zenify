@@ -52,6 +52,9 @@ final class NamespaceDeclarationSniffTest extends TestCase
 
 		$fixedContent = $codeSnifferRunner->getFixedContent(__DIR__ . '/wrong6.php');
 		$this->assertSame(file_get_contents(__DIR__ . '/wrong6-fixed.php'), $fixedContent);
+
+		$fixedContent = $codeSnifferRunner->getFixedContent(__DIR__ . '/wrong7.php');
+		$this->assertSame(file_get_contents(__DIR__ . '/wrong7-fixed.php'), $fixedContent);
 	}
 
 }

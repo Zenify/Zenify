@@ -6,6 +6,7 @@ namespace ZenifyCodingStandard\Sniffs\Namespaces;
 
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;
+use ZenifyCodingStandard\Helper\PositionFinder;
 use ZenifyCodingStandard\Helper\Whitespace\ClassMetrics;
 use ZenifyCodingStandard\Helper\Whitespace\WhitespaceFinder;
 
@@ -190,8 +191,9 @@ final class NamespaceDeclarationSniff implements PHP_CodeSniffer_Sniff
 	private function fixSpacesFromUseStatementToClass(int $position, int $linesToClass)
 	{
 		if ($linesToClass < $this->emptyLinesAfterNamespace) {
+			$lastPosition = PositionFinder::findLastPositionInCurrentLine($this->file, $position);
 			for ($i = $linesToClass; $i < $this->emptyLinesAfterNamespace; $i++) {
-				$this->file->fixer->addContent($position, PHP_EOL);
+				$this->file->fixer->addContent($lastPosition, PHP_EOL);
 			}
 
 		} else {
